@@ -1,20 +1,27 @@
 #!/usr/bin/python3
-""" Pascals triangle """
+""" Pascals triangle ALX Interview """
 
 
 def pascal_triangle(n):
-    """ Prints Pascals triangle using specs on README """
+    """Returns a pascal's triangle as per specs in README"""
     if n <= 0:
         return []
-    triangle = [[1]]
-    for i in range(1, n):
-        """ Define output variables """
-        row = [1]
-        for j in range(1, i):
-            row.append(triangle[i-1][j-1] + triangle[i-1][j])
-        row.append(1)
-        triangle.append(row)
 
-    """ Print rows of the triangle in the desired format """
-    for row in triangle:
-        print(row)
+    pascal_triangle = [0] * n
+
+    for i in range(n):
+        """ Output variations """
+        row = [0] * (i+1)
+        row[0] = 1
+        row[len(row) - 1] = 1
+
+        for m in range(1, i):
+            """ Fit values into the output format"""
+            if m > 0 and m < len(row):
+                x = pascal_triangle[i - 1][m]
+                y = pascal_triangle[i - 1][m - 1]
+                row[m] = x + y
+
+        pascal_triangle[i] = row
+
+    return pascal_triangle
