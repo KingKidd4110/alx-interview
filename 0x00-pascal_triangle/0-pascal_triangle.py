@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """ Pascals triangle """
 
+
 def pascal_triangle(n):
     if n <= 0:
         return []
@@ -12,11 +13,6 @@ def pascal_triangle(n):
         row.append(1)
         triangle.append(row)
 
-    # Print rows of the triangle in the desired format
-    max_len = len(str(triangle[-1][len(triangle[-1]) // 2]))
+    """ Print rows of the triangle in the desired format """
     for row in triangle:
-        row_str = ""
-        for num in row:
-            row_str += str(num).center(max_len)
-        print(row_str)
-
+        print(row)
