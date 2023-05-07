@@ -6,12 +6,11 @@ def minOperations(n):
     """
     Number of minimum operations that can be performed
     """
-    if n == 1:
-        return 0
-    dp = [float('inf')] * (n+1)
-    dp[1] = 0
-    for i in range(2, n+1):
-        for j in range(1, i):
-            if i % j == 0:
-                dp[i] = min(dp[i], dp[j] + (i//j))
-    return dp[n] if dp[n] != float('inf') else 0
+    i = 0
+    min_i = 2
+    while n > 1:
+        while n % min_i == 0:
+            i += min_i
+            n /= min_i
+        min_i += 1
+    return i
