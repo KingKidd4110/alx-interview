@@ -1,7 +1,5 @@
 #!/usr/bin/python3
-"""
-interview script
-"""
+""" interview script """
 import sys
 from collections import defaultdict
 
@@ -47,5 +45,6 @@ except KeyboardInterrupt:
     """ Print final metrics before exiting """
     print(f"File size: {total_file_size}")
     for code in status_codes:
+        """ print out """
         if lines_by_status_code[code] > 0:
             print(f"{code}: {lines_by_status_code[code]}")
